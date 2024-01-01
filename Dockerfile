@@ -1,22 +1,16 @@
-# Get the latest golang image
-FROM golang:latest
+FROM golang:1.21
 
-# Set the Current Working Directory inside the container
-WORKDIR /go/src/app/
-
-# Copy everything from the current directory to the PWD(Present Working Directory) inside the container
+WORKDIR /app
+# Copy the source from the current directory to the Working Directory inside the container
 COPY . .
 
 # Download all the dependencies
 RUN go mod download -x
 
-RUN go
-
-# Install compile daemon for hot reloading
+# Compile daemon for hot reloading
 RUN go install -mod=mod github.com/githubnemo/CompileDaemon
 
-# Expose port 80 to the outside world
-EXPOSE 80
+RUN go install -v golang.org/x/tools/gopls@latest
 
-# Command to run the executable
-ENTRYPOINT CompileDaemon --build="go build main.go" --command="./main"
+ENTRYPOINT CompileDaemon --build="go build main.go" --command="./main"  --directory="." --color=true --graceful-kill=true 
+EXPOSE 8080
