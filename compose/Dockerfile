@@ -12,5 +12,7 @@ RUN go install -mod=mod github.com/githubnemo/CompileDaemon
 
 RUN go install -v golang.org/x/tools/gopls@latest
 
+RUN go install github.com/go-delve/delve/cmd/dlv@latest
+
 ENTRYPOINT CompileDaemon --build="go build main.go" --command="./main"  --directory="." --color=true --graceful-kill=true 
 EXPOSE 8080
