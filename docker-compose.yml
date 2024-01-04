@@ -1,13 +1,17 @@
----
 version: "3.7"
 services:
-  app:
-    build: .
-    image: api
+  api:
+    build:
+      context: .
+      dockerfile: ./compose/Dockerfile
+    image: finance-management-api
     command: ./main
     ports:
       - "8080:8080"
     volumes:
-      - ./:/app
+      - .:/app
     environment:
       PORT: "8080"
+networks:
+  default:
+    name: api
