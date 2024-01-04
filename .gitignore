@@ -50,3 +50,5 @@ $GOPATH/pkg/mod/
 
 # main
 main
+
+__debug_bin*
