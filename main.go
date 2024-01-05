@@ -1,6 +1,10 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"server/config"
+
+	"github.com/gin-gonic/gin"
+)
 
 func setupRouter() *gin.Engine {
 	r := gin.Default()
@@ -11,6 +15,7 @@ func setupRouter() *gin.Engine {
 		})
 	})
 
+	config.Connect()
 	return r
 }
 

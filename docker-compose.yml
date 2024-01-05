@@ -1,17 +1,31 @@
-version: "3.7"
+version: "3.8"
 services:
   api:
     build:
       context: .
       dockerfile: ./compose/Dockerfile
     image: finance-management-api
-    # command: ./main
     ports:
       - "8080:8080"
     volumes:
       - .:/app
     environment:
       PORT: "8080"
+    networks:
+      - api_network
+
+  postgres:
+    image: postgres:12.1-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - .data/db:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    networks:
+      - api_network
 networks:
-  default:
-    name: api
+  api_network:
+    driver: bridge

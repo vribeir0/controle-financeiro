@@ -1,6 +1,8 @@
 package config
 
 import (
+	"server/models"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -8,11 +10,11 @@ import (
 var DB *gorm.DB
 
 func Connect() {
-	db, err := gorm.Open(postgres.Open("postgres://postgres:postgres@localhost:5432/postgres"), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open("postgresql://postgres:postgres@postgres:5432/postgres"), &gorm.Config{})
 
 	if err != nil {
-		panic("Could not connect to the database")
+		panic(err)
 	}
-
+	db.AutoMigrate(&models.User{})
 	DB = db
 }
