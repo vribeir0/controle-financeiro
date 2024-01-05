@@ -19,3 +19,34 @@
 
 # Go workspace file
 go.work
+
+# Log files
+*.log
+
+# Configuration files
+*.yaml
+*.json
+*.toml
+*.ini
+
+# IDE files
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Go build files
+*.o
+*.a
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+# Go Module cache
+$GOPATH/pkg/mod/
+
+# main
+main
