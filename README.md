@@ -21,3 +21,8 @@ Para executar o projeto em um Dev Container, siga estas etapas:
 5. Abra o repositório no VSCode
 6. Quando solicitado, clique em "Reopen in Container". Isso irá construir o Dev Container e iniciar o ambiente de desenvolvimento.
 7. Se não for solicitado, você pode abrir o Command Palette (Ctrl+Shift+P) e digitar "Reopen in Container".
+
+# Execução do projeto via terminal
+
+1. Após inicializar o container
+2. Execute ./main no terminal

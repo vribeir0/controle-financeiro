@@ -18,5 +18,5 @@ COPY . .
 
 EXPOSE 8080
 
-ENTRYPOINT CompileDaemon --build="go build main.go"  --directory="." --color=true --graceful-kill=true 
+ENTRYPOINT CompileDaemon --build="go build main.go"  --directory="." --color=true --graceful-kill=true
 

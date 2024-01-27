@@ -1,7 +1,7 @@
 package config
 
 import (
-	"server/models"
+	"server/app/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -16,5 +16,6 @@ func Connect() {
 		panic(err)
 	}
 	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.Category{})
 	DB = db
 }

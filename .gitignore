@@ -53,3 +53,6 @@ main
 
 __debug_bin*
 .data
+
+#Configuração de inicializar o debugger no vscode
+!launch.json
