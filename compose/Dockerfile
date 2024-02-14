@@ -1,4 +1,6 @@
-FROM golang:1.21 as builder
+FROM golang:1.21-bullseye
+
+ENV GO111MODULE on
 
 WORKDIR /app
 # Copy the source from the current directory to the Working Directory inside the container
